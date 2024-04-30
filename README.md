@@ -6,10 +6,10 @@ Clone the repository:
 git clone <repository-url>
 
 ## Install dependencies:
-npm install express mongodb mongoose
+npm install express mongodb mongoose nodemon
 
 ## Start the server:
-npm start
+nodemon app
 
 ## Endpoints
 Add a Book

@@ -1,0 +1,16 @@
+{
+  "name": "book-library-api",
+  "version": "1.0.0",
+  "description": "This is a simple RESTful API for managing a book library, built using Node.js, Express, and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.3"
+  }
+}
