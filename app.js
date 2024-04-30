@@ -1,7 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const routes = require('./routes/bookRoutes')
 
 const app = express()
+app.use(express.json())
 //connecting to db and initiating app
 const DBURI = 'mongodb://localhost/Book'
 mongoose.connect(DBURI)
@@ -16,5 +18,5 @@ mongoose.connect(DBURI)
     })
 
 //using routes
-
+app.use(routes)
 
