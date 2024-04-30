@@ -16,7 +16,7 @@ const bookSchema = new Schema({
         type : Number,
         required : true
     },
-    categories : {
+    category : {
         type : String,
         required : true
     }
