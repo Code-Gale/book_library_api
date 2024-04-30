@@ -1,7 +1,8 @@
 const { Timestamp } = require('mongodb');
 const mongoose = require('mongoose')
 
-const Schema = express.Schema;
+
+const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
     title : {
