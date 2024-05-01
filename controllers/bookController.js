@@ -1,11 +1,12 @@
 //get_books, add_book, delete_book, update_book, 
 //find_book_by_author, find_book_by_title
 const Book = require('../models/book')
+const mongoose = require('mongoose')
 //get all books
 const get_books = (req, res) => {
-    const books = Book.find()
+    const books = Book.find({}, { title : 1,  author : 1, _id : 0})
         .then((result) => {
-            res.status(201).json(books)
+            res.status(201).json(result)
         })
         .catch((err) => {
             console.log(err)
@@ -17,8 +18,7 @@ const add_book = (req, res) => {
     const book = new Book({ title, author, year, category })
     book.save()
         .then((result) => {
-            console.log('Book added to library...')
-            res.status(201).json(book)
+            res.status(201).json('Book added to Library...')
         })
         .catch((err) => {
             console.log(err)
@@ -60,7 +60,7 @@ const find_book_by_author = (req, res) => {
 const update_book = (req, res) => {
     const { id } = req.params
     const { title, author, year, category} = req.body
-    const book = Book.findByIdAndUpdate({ id }, { title, author, year, category })
+    const book = Book.findByIdAndUpdate(new mongoose.Types.ObjectId(id), { title, author, year, category })
         .then((result) => {
             if(!Book){
                 res.status(404).json('Could not find Book')
@@ -75,7 +75,7 @@ const update_book = (req, res) => {
 //delete a book
 const delete_book = (req, res) => {
     const { id } = req.params
-    Book.findByIdAndDelete({ id })
+    Book.findByIdAndDelete(new mongoose.Types.ObjectId(id))
         .then((result) => {
             if(!Book){
                 res.status(404).json('Could not find Book...')
