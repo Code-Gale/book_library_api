@@ -2,7 +2,7 @@ const route = require('express').Router()
 
 const bookController = require('../controllers/bookController')
 //getting all books
-route.get('/books', bookController.get_books)
+route.get('/', bookController.get_books)
 //adding books
 route.post('/books', bookController.add_book)
 //search for a book by title
